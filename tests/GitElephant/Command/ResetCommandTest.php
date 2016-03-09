@@ -28,6 +28,6 @@ class ResetCommandTest extends TestCase
     public function testResetHard()
     {
         $rstc = ResetCommand::getInstance();
-        $this->assertEquals("reset '--hard' 'dbeac'",$rstc->reset('dbeac',[ResetCommand::OPTION_HARD]));
+        $this->assertEquals("reset '--hard' 'dbeac'",$rstc->reset('dbeac',array(ResetCommand::OPTION_HARD)));
     }
 }

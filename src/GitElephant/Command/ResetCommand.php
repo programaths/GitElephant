@@ -10,7 +10,6 @@ namespace GitElephant\Command;
 
 
 use GitElephant\Objects\Commit;
-use GitElephant\Objects\Tag;
 use GitElephant\Objects\TreeishInterface;
 use \GitElephant\Repository;
 
@@ -40,7 +39,7 @@ class ResetCommand extends BaseCommand
      * @throws \RuntimeException
      * @return string
      */
-    public function reset($arg = null, Array $options = array())
+    public function reset($arg = null, array $options = array())
     {
         $this->clearAll();
         $this->addCommandName(self::GIT_RESET_COMMAND);
@@ -58,11 +57,12 @@ class ResetCommand extends BaseCommand
     }
 
     /**
+     * @param Repository $repository
      * @return ResetCommand
      */
-    public static function getInstance()
+    public static function getInstance(Repository $repository=null)
     {
-        return new self();
+        return new self($repository);
     }
 
 
